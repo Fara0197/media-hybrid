@@ -4,21 +4,94 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/main.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/css/main.css" />
     <title>Project Base</title>
   </head>
+
   <body>
     <header class="mastHeader">
-      <h1>fara0197</h1>
+      <h1>nasra playlist</h1>
     </header>
 
-    <main class="media-containers">
-      <section id="player-section">column1</section>
-      <section id="playlist-section">column2</section>
-    </main>
+    <div class="media-containers">
+      <section id="player-section">
+        <div id="visual">
+          <img src="./media/" alt="track name" />
+          <div id="audio-animation">
+            <time>0:00</time>
+            <progress value="0" max="100"></progress>
+            <time>0:00</time>
+            <!-- <audio controls id="track-player" src="./media/sampha.mp3"></audio> -->
+          </div>
+        </div>
+        <div id="controls">
+          <!-- all the buttons go here -->
+
+          <button id="buttonPrevious" class="buttons">
+            <span class="material-icons">skip_previous</span>
+          </button>
+          <button id="buttonReplay" class="buttons">
+            <span class="material-icons">replay_10</span>
+          </button>
+          <button id="buttonPlay" class="buttons">
+            <span class="material-icons">play_arrow</span>
+          </button>
+          <button id="buttonPause" class="buttons">
+            <span class="material-icons">pause</span>
+          </button>
+          <button id="buttonStop" class="buttons">
+            <span class="material-icons">stop</span>
+          </button>
+          <button id="buttonForward" class="buttons">
+            <span class="material-icons">forward_10 </span>
+          </button>
+          <button id="buttonNext" class="buttons">
+            <span class="material-icons">skip_next</span>
+          </button>
+        </div>
+      </section>
+
+      <section id="playlist-section">
+        <div id="playlist-items">
+            <div id="song-1">
+                <img src="" alt="">
+                <h2 class="artist-name">Kevin Garrett</h2>
+                <h3 class="track-name">Refuse</h3>
+            </div>
+
+
+            <div id="song-2">
+                <img src="" alt="">
+                <h2 class="artist-name">Snoh Aalegra</h2>
+                <h3 class="track-name">Indecisive</h3>
+            </div>
+
+
+            <div id="song-3">
+                <img src="" alt="">
+                <h2 class="artist-name">Mahalia</h2>
+                <h3 class="track-name">Pretty</h3>
+            </div>
+
+
+            <div id="song-4">
+                <img src="" alt="">
+                <h2 class="artist-name">Sampha</h2>
+                <h3 class="track-name">Piano</h3>
+            </div>
+
+
+            <div id="song-5">
+                <img src="" alt="">
+                <h2 class="artist-name">Sam Kim</h2>
+                <h3 class="track-name">Seattle</h3>
+            </div>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
