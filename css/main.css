@@ -1,29 +1,72 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed:400');
+@import url("https://fonts.googleapis.com/css?family=Ubuntu+Condensed:400");
 html {
   font: normal 100%/1.3 "Montserrat", sans-serif;
   box-sizing: border-box;
   height: 100%;
   padding: 0;
   margin: 0 auto;
-  font-weight: 400;
-  line-height: 1.75;
-  color: #000000;
 }
 
 body {
   width: 100%;
   height: 100;
   margin: 0 auto;
-  font-family: 'Ubuntu Condensed', sans-serif;
+  font-family: "Ubuntu Condensed", sans-serif;
   font-weight: 400;
   line-height: 1.75;
-  color: #000000;}
+  color: #000000;
+}
+p {
+  margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2.488rem;
+}
+
+h2 {
+  font-size: 1.7rem;
+  padding: 0;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+}
+
+small,
+.text_small {
+  font-size: 0.833rem;
+}
 *,
 *::before,
 *::after {
   box-sizing: inherit;
 }
-
+img {
+  object-fit: cover;
+}
 /*main header*/
 .mastHeader {
   font-size: 0.6rem;
@@ -35,12 +78,27 @@ body {
 .media-containers {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  align-items: stretch;
   width: 100%;
   margin: 0 auto;
   padding: 1rem 3rem 1rem;
   text-align: center;
 }
 
+/*playlist section*/
+#playlist-items {
+  padding: 0.5rem;
+}
+#playlist-items h2:active {
+  color: white;
+  background-color: rgb(18, 11, 2);
+}
+#playlist-items img {
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+}
 #player-section {
   padding: 0.3rem;
   flex: 1 1 0;
@@ -51,11 +109,28 @@ body {
   padding: 0.3rem;
   flex: 1 1 0;
   background-color: rgba(242, 196, 135, 0.448);
+ justify-content: center;
 }
 
-@media only screen and (min-width: 40em) {
+#visual{
+padding-top: 0;
+}
+
+#song-1,
+#song-2,
+#song-3,
+#song-4,
+#song-5 {
+  padding: 1.2rem;
+}
+
+@media only screen and (min-width: 60em) {
   .media-containers {
     display: flex;
     flex-direction: row;
   }
+  #visual{
+    padding-top: 10rem;
+    }
+    
 }
