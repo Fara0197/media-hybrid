@@ -31,7 +31,6 @@ h5 {
 }
 
 h1 {
-  margin-top: 0;
   font-size: 2.488rem;
 }
 
@@ -87,20 +86,26 @@ img {
 }
 
 /*playlist section*/
+
+#track-player {
+  display: none;
+}
+
 #playlist-items {
   padding: 0.5rem;
 }
-#playlist-items h2:active {
+/*active on artist name*/
+h2:active {
   color: white;
-  background-color: rgb(18, 11, 2);
+  background-color: rgba(81, 46, 4, 0.277);
 }
 #playlist-items img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   background-size: cover;
 }
 #player-section {
-  padding: 0.3rem;
+  padding: 1.3rem;
   flex: 1 1 0;
   background-color: rgba(108, 64, 10, 0.277);
 }
@@ -109,11 +114,11 @@ img {
   padding: 0.3rem;
   flex: 1 1 0;
   background-color: rgba(242, 196, 135, 0.448);
- justify-content: center;
+  justify-content: center;
 }
 
-#visual{
-padding-top: 0;
+#visual {
+  padding-top: 0;
 }
 
 #song-1,
@@ -122,6 +127,7 @@ padding-top: 0;
 #song-4,
 #song-5 {
   padding: 1.2rem;
+  width: 100%;
 }
 
 @media only screen and (min-width: 60em) {
@@ -129,8 +135,7 @@ padding-top: 0;
     display: flex;
     flex-direction: row;
   }
-  #visual{
+  #visual {
     padding-top: 10rem;
-    }
-    
+  }
 }
