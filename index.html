@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="/js/controls.js"></script>
+    <script type="module" src="/js/controls.js"></script>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/main.css"/>
     <title>MP3 player</title>
   </head>
 
@@ -25,9 +25,16 @@
           <img src="./media/sampha.jpeg" alt="track name" />
           <div id="audio-animation">
             <time class="current-time">0:00</time>
-            <input type="range" name="progress-bar" id="progress-bar" min="0" max ="" value="0">
+            <input
+              type="range"
+              name="progress-bar"
+              id="progress-bar"
+              min="0"
+              max=""
+              value="0"
+            />
             <time class="max-time">0:00</time>
-            <audio id="track-player" src="./media"></audio>
+            <audio id="track-player" src=""></audio>
           </div>
         </div>
         <div id="controls">

@@ -34,3 +34,5 @@ const SONGS = [
     thumbnail: 'media/snohaalegra.jpeg',
   },
 ];
+
+export {SONGS};
