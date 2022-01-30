@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/js/controls.js"></script>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -18,14 +19,14 @@
     </header>
 
     <div class="media-containers">
-      <section id="player-section">
+      <section id="player" class="is-playing">
         <div id="visual">
           <h2>Piano</h2>
           <img src="./media/sampha.jpeg" alt="track name" />
           <div id="audio-animation">
-            <time>0:00</time>
-            <progress value="0" max="100"></progress>
-            <time>0:00</time>
+            <time class="current-time">0:00</time>
+            <input type="range" name="progress-bar" id="progress-bar" min="0" max ="" value="0">
+            <time class="max-time">0:00</time>
             <audio id="track-player" src="./media"></audio>
           </div>
         </div>
