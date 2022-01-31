@@ -4,12 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="/js/controls.js"></script>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/main.css" />
     <title>MP3 player</title>
   </head>
 
@@ -21,8 +20,8 @@
     <div class="media-containers">
       <section id="player" class="is-playing">
         <div id="visual">
-          <h2>Piano</h2>
-          <img src="./media/sampha.jpeg" alt="track name" />
+          <div id="artist-name"></div>
+          <img src="media/sampha.jpeg" alt="current-track" id="image-cover" />
           <div id="audio-animation">
             <time class="current-time">0:00</time>
             <input
@@ -34,7 +33,7 @@
               value="0"
             />
             <time class="max-time">0:00</time>
-            <audio id="track-player" src=""></audio>
+            <audio id="track-player" src="media/samkim.mp3"></audio>
           </div>
         </div>
         <div id="controls">
@@ -66,37 +65,9 @@
 
       <section id="playlist-section">
         <div id="playlist-items">
-          <div id="song-1">
-            <img src="./media/kevingarrett.jpeg" alt="kevin-playlist" />
-            <h2 class="artist-name">Kevin Garrett</h2>
-            <h3 class="track-name">Refuse</h3>
-          </div>
-
-          <div id="song-2">
-            <img src="./media/snohaalegra.jpeg" alt="snoh-playlist" />
-            <h2 class="artist-name">Snoh Aalegra</h2>
-            <h3 class="track-name">Indecisive</h3>
-          </div>
-
-          <div id="song-3">
-            <img src="./media/mahalia.jpeg" alt="mahalia-playlist" />
-            <h2 class="artist-name">Mahalia</h2>
-            <h3 class="track-name">Pretty</h3>
-          </div>
-
-          <div id="song-4">
-            <img src="./media/sampha.jpeg" alt="sampha-playlist" />
-            <h2 class="artist-name">Sampha</h2>
-            <h3 class="track-name">Piano</h3>
-          </div>
-
-          <div id="song-5">
-            <img src="./media/samkim.jpeg" alt="samkim-playlist" />
-            <h2 class="artist-name">Sam Kim</h2>
-            <h3 class="track-name">Seattle</h3>
-          </div>
+          <h3>my playlist</h3>
         </div>
       </section>
-    </div>
   </body>
+  <script type="module" src="/js/controls.js" defer></script>
 </html>

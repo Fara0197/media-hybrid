@@ -95,7 +95,7 @@ img {
   padding: 0.5rem;
 }
 /*active on artist name*/
-h2:active {
+#artist-name:active {
   color: white;
   background-color: rgba(81, 46, 4, 0.277);
 }
@@ -103,8 +103,10 @@ h2:active {
   width: 100px;
   height: 100px;
   background-size: cover;
+  padding: .4rem;
 }
-#player {
+
+#player{
   padding: 1.3rem;
   flex: 1 1 0;
   background-color: rgba(99, 58, 9, 0.277);
@@ -113,7 +115,7 @@ h2:active {
 #playlist-section {
   padding: 0.3rem;
   flex: 1 1 0;
-  background-color: rgba(242, 196, 135, 0.448);
+  background-color: rgba(213, 203, 189, 0.366);
   justify-content: center;
 }
 
@@ -121,11 +123,7 @@ h2:active {
   padding-top: 0;
 }
 
-#song-1,
-#song-2,
-#song-3,
-#song-4,
-#song-5 {
+#song-items{
   padding: 1.2rem;
   width: 100%;
 }
