@@ -8,37 +8,30 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <title>MP3 player</title>
   </head>
 
   <body>
     <header class="mastHeader">
-      <h1>nasra playlist</h1>
+      <h1>playlist</h1>
     </header>
 
     <div class="media-containers">
       <section id="player" class="is-playing">
         <div id="visual">
-          <div id="artist-name"></div>
-          <img src="media/sampha.jpeg" alt="current-track" id="image-cover" />
-          <div id="audio-animation">
+          <h4></h4>
+          <audio  id="track-player"></audio>
             <time class="current-time">0:00</time>
-            <input
-              type="range"
-              name="progress-bar"
-              id="progress-bar"
-              min="0"
-              max=""
+            <input type="range" name="progress-bar"id="progress-bar"
               value="0"
             />
+           
             <time class="max-time">0:00</time>
-            <audio id="track-player" src="media/samkim.mp3"></audio>
-          </div>
         </div>
+        
         <div id="controls">
           <!-- all the buttons go here -->
-
           <button id="buttonPrevious" class="buttons">
             <span class="material-icons">skip_previous</span>
           </button>
@@ -65,9 +58,9 @@
 
       <section id="playlist-section">
         <div id="playlist-items">
-          <h3>my playlist</h3>
         </div>
       </section>
+      <script type="module" src="./js/controls.js" defer></script>
   </body>
-  <script type="module" src="/js/controls.js" defer></script>
+
 </html>

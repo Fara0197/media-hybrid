@@ -12,99 +12,114 @@ import { SONGS } from "./songs.js";
  *
  * Steps:
  * Load the songs from songs.js..complete buttons functionality, display current and total time..
+ * 
+ * stuck on loading the audio..use setTimeout? 
  */
 
 const APP = {
+  currentSong : 0,
+  songList : [
+  ],
+  player: null,
+  audio: null,
+  btnPlay: null,
   init: () => {
-    let currentSong = 0;
+
     APP.eventListeners();
     APP.songsSection();
+    
   },
+
+
   /**The Event Listeners */
-  eventListeners() {
+  eventListeners() {    
     let progressBar = document.getElementById("progress-bar");
     let audio = document.getElementById("track-player");
+    let durationTime = document.getElementById("max-time")
     //button elements
     let btnPlay = document.getElementById("buttonPlay");
     let btnStop = document.getElementById("buttonStop");
-    let btnPause = document.getElementById('buttonPause"');
+    let  BtnPause = document.getElementById("buttonPause");
+
 
     /*Event Listeners */
-    audio.addEventListener("durationchange", APP.totalTime);
+    // audio.addEventListener('loadedmetadata', APP.loadTrack);
+    audio.addEventListener("durationchange", APP.loadTrack);
     btnPlay.addEventListener("click", APP.playSong);
     btnStop.addEventListener("click", APP.stopSong);
-    // btnPause.addEventListener("click", APP.buttonPause);
+    BtnPause.addEventListener("click", APP.pauseSong);
   },
 
   /*Functions*/
-  //load the playlist on screen
+  //load the playlist on screen 
   songsSection() {
     let df = document.createDocumentFragment();
     let playlistSection = document.getElementById("playlist-items");
-    let songItems = document.createElement("div");
-    let songCard = document.createElement("div");
-    
-
-  
     SONGS.forEach((song) => {
-    //test console.log(song.artist);
+    //test console.log(song.src);
     //create elements inside playlist section
-    let songTitle = document.createElement("div");
-    let songArtist = document.createElement("div");
+    let songItems = document.createElement("div");
+    let songTitle = document.createElement("h2");
+    let songArtist = document.createElement("h2");
     let imageCover = document.createElement("img");
-
+ 
     imageCover.src = song.thumbnail;
     imageCover.alt = `image of ${song.title}.`;
 
     songItems.id = 'song-items';
-    songCard.id = 'song-card';
     songTitle.id = 'track-name';
     songArtist.id = 'artist-name';
-
-
+  
     songTitle.innerHTML = song.title;
     songArtist.innerHTML = song.artist;
-
-
     songItems.append(imageCover, songArtist,songTitle);
     df.append(songItems);
 
     });
-
     playlistSection.append(df);
     let playlistDiv = document.getElementById('playlist-section');
     playlistDiv.append(playlistSection);
   },
 
-  //loading the track function..isPlaying..player.play and player.load
-  loadTrack(song) {
 
-  },
+  //loading the track that is playing (player.play and player.load)
+  loadTrack(e){
 
-  //progress bar function: time duration and current time..(seconds)
+   
+},
+
+  //display total time of audio
   totalTime(ev) {
-    const { durationT, currentT } = ev.target;
-    const progressT = (currentT / durationT) * 60;
-    progressBar.style.width = `${progressT}%`;
+    // const { durationT, currentT } = ev.target;
+    // const progressT = (currentT / durationT) * 60;
+    // progressBar.style.width = `${progressT}%`;
   },
+
+  
 
   //play function
   playSong(ev) {
+    console.log('test');
     if (!audio.paused) return; //already playing
-    audio.src = songList[currentSong].src;
+    audio.src = songList[currentTrack].src;
+    audio.currentTime = 0;
     audio.play();
+    //remove play and show pause button 
+    
   },
 
   //stop function
-  stopSong(ev) {
-    audio.pause();
+  pauseSong(ev) {
+    console.log('test');
     audio.currentTime = 0;
+    audio.pause();
+     //remove pause and display pause button 
+   
   },
 
-  //pause function
-  //   buttonPause(ev) {
-  //     audio.pause();
-  //   },
+
+
+ 
 };
 
 //get the APP.init function to run when the page loads
