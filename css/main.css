@@ -76,19 +76,31 @@ img {
   padding: 1rem 2rem 1rem;
   text-align: center;
 }
+#visual {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
 /*playlist section*/ 
 #playlist-items {
   display: flex;
   flex-direction: column;
+  padding: 1rem 0.4rem 1rem}
+#selected-track-cover {
+  width: 300px;
+  height: 300px;
 }
-
 
 #song-items img{
 width: 250px;
 height: 200px;
 object-fit: cover;
 align-self: flex-start;
+padding: 1rem 0.4rem 1rem
 }
 /*active on artist name*/
 #track-name:active {
@@ -109,12 +121,18 @@ align-self: flex-start;
   justify-content: center;
 }
 
-
-#buttonPlay,
-#buttonPause{
-
+.hide {
+  display: none;
 }
 
+.show {
+  display: block;
+}
+#song-items:hover {
+  border: 2px solid  rgba(160, 125, 79, 0.925);
+  background-color: rgba(213, 203, 189, 0.366);
+  cursor: pointer;
+}
 
 
 
@@ -137,7 +155,7 @@ align-self: flex-start;
     flex-direction: row;
   }
   #visual {
-    padding-top: 8rem;
+    padding-top: 2rem;
   }
   #song-items img{
     width: 150px;

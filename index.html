@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="/css/main.css" />
     <title>MP3 player</title>
   </head>
 
@@ -20,14 +20,16 @@
     <div class="media-containers">
       <section id="player" class="is-playing">
         <div id="visual">
-          <h4></h4>
-          <audio  id="track-player"></audio>
-            <time class="current-time">0:00</time>
-            <input type="range" name="progress-bar"id="progress-bar"
-              value="0"
+          <h3 id="selected-track-artist"></h3>
+          <h2 id="selected-track-title"></h2>
+          <img id="selected-track-cover" alt="track-image">
+          <audio id="track-player"></audio>
+          <div id="track-duration">
+            <time id="current-time">0:00</time>
+            <input type="range" name="progress-bar" id="progress-bar" value="0"
             />
-           
-            <time class="max-time">0:00</time>
+            <time id="max-time">0:00</time>
+          </div>
         </div>
         
         <div id="controls">
@@ -60,7 +62,7 @@
         <div id="playlist-items">
         </div>
       </section>
-      <script type="module" src="./js/controls.js" defer></script>
+      <script type="module" src="/js/controls.js" defer></script>
   </body>
 
 </html>
