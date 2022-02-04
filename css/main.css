@@ -59,6 +59,31 @@ small,
 img {
   object-fit: cover;
 }
+
+
+button{
+  background-color: rgba(183, 126, 58, 0.277);
+  border-radius: 8px;
+  border-width: 0;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0.3rem 0.8rem;
+  text-align: center;
+}
+
+#progress-bar{
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  background: #d3d3d3; /* Grey background */
+  outline: none;
+  cursor: pointer;
+  opacity: 0.8; 
+  border-radius:5px;
+}
+
 /*main header*/
 .mastHeader {
   text-align: center;
@@ -99,7 +124,7 @@ width: 250px;
 height: 200px;
 object-fit: cover;
 align-self: flex-start;
-padding: 0.2rem 0.4rem 0.2rem
+padding: 0.2rem 0.4rem 0.2rem;
 }
 /*active on artist name*/
 #song-items.active {
