@@ -181,12 +181,16 @@ const APP = {
   playSong(ev) {
     audio.play();
     APP.showButton('buttonPause');
+    document.querySelectorAll("song-items.active").style.animationPlayState = 'play';
+
   },
 
   // Pause the audio function
   pauseSong(ev) {
     audio.pause();
     APP.showButton('buttonPlay');
+    document.querySelectorAll("song-items.active").style.animationPlayState = 'pause';
+
   },
 
   // Stop the audio function
@@ -217,7 +221,11 @@ const APP = {
     // Hide the hideBtn and display the showBtn
     document.getElementById(hideBtn).style.display = "none";
     document.getElementById(showBtn).style.display = "";
+
+    
   },
+
+  
 };
 
 //get the APP.init function to run when the page loads
