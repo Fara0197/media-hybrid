@@ -181,7 +181,6 @@ const APP = {
   playSong(ev) {
     audio.play();
     APP.showButton('buttonPause');
-    document.querySelectorAll("song-items.active").style.animationPlayState = 'play';
 
   },
 
@@ -189,15 +188,16 @@ const APP = {
   pauseSong(ev) {
     audio.pause();
     APP.showButton('buttonPlay');
-    document.querySelectorAll("song-items.active").style.animationPlayState = 'pause';
+
 
   },
 
   // Stop the audio function
   stopSong(ev) {
     audio.pause();
-    progressBar.value = 0;
     audio.currentTime = 0;
+    progressBar.value = 0;
+  
   },
 
 
