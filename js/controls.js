@@ -16,17 +16,18 @@ import { SONGS } from "./songs.js";
  * stuck on loading the audio..use setTimeout? 
  */
 
-const APP = {
-  currentSong : 0,
-  songList : [
-  ],
-  player: null,
-  audio: null,
-  btnPlay: null,
-  init: () => {
+//set global variables for songs and track details
+ let currentSong = 0;
+let pauseSelected = false;
+let selectedImage;
+let selectedArtist;
+let selectedTrack;
+let songItemsList = [];
 
-    APP.eventListeners();
-    APP.songsSection();
+const APP = {
+  init: () => {
+APP.eventListeners();
+APP.songsSection();
     
   },
 
@@ -35,7 +36,10 @@ const APP = {
   eventListeners() {    
     let progressBar = document.getElementById("progress-bar");
     let audio = document.getElementById("track-player");
-    let durationTime = document.getElementById("max-time")
+    let durationTime = document.getElementById("max-time");
+    let selectedCover = document.getElementById("selected-track-cover");
+    let selectedTrackName = document.getElementById("selected-track-title");
+    let selectedTrackArtist = document.getElementById("selected-track-artist");
     //button elements
     let btnPlay = document.getElementById("buttonPlay");
     let btnStop = document.getElementById("buttonStop");
@@ -43,26 +47,25 @@ const APP = {
 
 
     /*Event Listeners */
-    // audio.addEventListener('loadedmetadata', APP.loadTrack);
-    audio.addEventListener("durationchange", APP.loadTrack);
     btnPlay.addEventListener("click", APP.playSong);
     btnStop.addEventListener("click", APP.stopSong);
     BtnPause.addEventListener("click", APP.pauseSong);
   },
 
   /*Functions*/
-  //load the playlist on screen 
+  //load the playlist on screen: initializing the songs list and the selected the song
   songsSection() {
     let df = document.createDocumentFragment();
     let playlistSection = document.getElementById("playlist-items");
-    SONGS.forEach((song) => {
+  
+    SONGS.forEach((song, index) => {
     //test console.log(song.src);
     //create elements inside playlist section
     let songItems = document.createElement("div");
     let songTitle = document.createElement("h2");
     let songArtist = document.createElement("h2");
     let imageCover = document.createElement("img");
- 
+  
     imageCover.src = song.thumbnail;
     imageCover.alt = `image of ${song.title}.`;
 
@@ -72,51 +75,57 @@ const APP = {
   
     songTitle.innerHTML = song.title;
     songArtist.innerHTML = song.artist;
-    songItems.append(imageCover, songArtist,songTitle);
-    df.append(songItems);
 
+    //event listener for song items
+    songItems.addEventListener('click', function(){
+    //if clicked, ignore if the selected song is already playing
+    if (index!== currentSong){
+    //select and display the new song 
+    APP.displaySong(songItems);
+    }
+    //create a new function when called with a certain 'this' value
+    //this == object selected 
+    }.bind(this))
+  
+    songItems.append(imageCover, songArtist,songTitle);
+    songItemsList.push(songItems);
+    df.append(songItems);
+ 
     });
     playlistSection.append(df);
     let playlistDiv = document.getElementById('playlist-section');
     playlistDiv.append(playlistSection);
+
+    //new function for duration
+    APP.trackDuration();
+    APP.displaySong(0);
   },
 
+  //the max and current time for the track duration
+ trackDuration(){
 
-  //loading the track that is playing (player.play and player.load)
-  loadTrack(e){
+ },
 
-   
+//Displaying the selected song details
+displaySong(){
+
 },
 
-  //display total time of audio
-  totalTime(ev) {
-    // const { durationT, currentT } = ev.target;
-    // const progressT = (currentT / durationT) * 60;
-    // progressBar.style.width = `${progressT}%`;
-  },
-
-  
-
-  //play function
+  //play the audio function 
   playSong(ev) {
-    console.log('test');
-    if (!audio.paused) return; //already playing
-    audio.src = songList[currentTrack].src;
-    audio.currentTime = 0;
-    audio.play();
-    //remove play and show pause button 
+    
     
   },
 
-  //stop function
+  //pause the audio function 
   pauseSong(ev) {
-    console.log('test');
-    audio.currentTime = 0;
-    audio.pause();
-     //remove pause and display pause button 
    
   },
 
+ //stop the audio function 
+ stopSong(ev) {
+ 
+},
 
 
  

@@ -110,10 +110,14 @@ align-self: flex-start;
 }
 
 
-#track-name,
-#artist-name{
+#buttonPlay,
+#buttonPause{
 
 }
+
+
+
+
 @media only screen and (min-width: 48em) {
   #song-items{
     display: flex;
