@@ -26,7 +26,7 @@ h5 {
 }
 
 h1 {
-  font-size: 2.488rem;
+  font-size: 2rem;
 }
 
 h2 {
@@ -61,7 +61,6 @@ img {
 }
 /*main header*/
 .mastHeader {
-  font-size: 0.6rem;
   text-align: center;
 }
 
@@ -100,12 +99,12 @@ width: 250px;
 height: 200px;
 object-fit: cover;
 align-self: flex-start;
-padding: 1rem 0.4rem 1rem
+padding: 0.2rem 0.4rem 0.2rem
 }
 /*active on artist name*/
-#track-name:active {
-  color: white;
-  background-color: rgba(81, 46, 4, 0.277);
+#song-items.active {
+  color: rgba(138, 99, 47, 0.925);
+  background-color: rgba(193, 173, 148, 0.277);
 }
 
 #player{
@@ -130,9 +129,10 @@ padding: 1rem 0.4rem 1rem
 }
 #song-items:hover {
   border: 2px solid  rgba(160, 125, 79, 0.925);
-  background-color: rgba(213, 203, 189, 0.366);
+  background-color: rgba(230, 224, 216, 0.366);
   cursor: pointer;
 }
+
 
 
 

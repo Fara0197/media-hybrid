@@ -26,12 +26,11 @@ let selectedTrackArtist;
 let selectedTrackName;
 
 let audio;
-let progressBar
+let progressBar;
 let btnPlay;
 let btnStop;
 let durationTime;
 let BtnPause;
-
 
 const APP = {
   init: () => {
@@ -43,16 +42,17 @@ const APP = {
   eventListeners() {
     progressBar = document.getElementById("progress-bar");
     audio = document.getElementById("track-player");
-    durationTime = document.getElementById("max-time")
-    selectedCover = document.getElementById("selected-track-cover")
-    selectedTrackName = document.getElementById("selected-track-title")
-    selectedTrackArtist = document.getElementById("selected-track-artist")
+    durationTime = document.getElementById("max-time");
+    selectedCover = document.getElementById("selected-track-cover");
+    selectedTrackName = document.getElementById("selected-track-title");
+    selectedTrackArtist = document.getElementById("selected-track-artist");
     //button elements
     btnPlay = document.getElementById("buttonPlay");
     btnStop = document.getElementById("buttonStop");
     BtnPause = document.getElementById("buttonPause");
 
     /*Event Listeners */
+    audio.addEventListener("durationchange", APP.replaySong);
     btnPlay.addEventListener("click", APP.playSong);
     btnStop.addEventListener("click", APP.stopSong);
     BtnPause.addEventListener("click", APP.pauseSong);
@@ -92,7 +92,8 @@ const APP = {
           }
           //create a new function when called with a certain 'this' value
           //this == object selected
-        }.bind(this));
+        }.bind(this)
+      );
 
       songItems.append(imageCover, songArtist, songTitle);
       songItemsList.push(songItems);
@@ -105,28 +106,6 @@ const APP = {
     //new function for duration
     APP.trackDuration();
     APP.displaySong(0);
-  },
-  
-
-  //the max and current time for the track duration
-  trackDuration() {},
-
-  //play the audio function
-  playSong(ev) {
-    audio.play();
-    APP.showButton("buttonPause");
-  },
-
-  //pause the audio function
-  pauseSong(ev) {
-    audio.pause();
-    APP.showButton("buttonPlay");
-  },
-
-  //stop the audio function
-  stopSong(ev) {
-    audio.pause();
-    audio.currentTime = 0;
   },
 
   //Displaying the selected song details
@@ -150,12 +129,84 @@ const APP = {
     // Set the currently playing track
     currentSong = index;
   },
+
+  //the max and current time for the track duration
+  trackDuration() {
+    //event listener for max duration
+    audio.addEventListener(
+      "timeupdate",
+      function () {
+        let maxTime = document.getElementById("max-time");
+        let duration = parseInt(audio.duration);
+        let currentTime = parseInt(audio.currentTime);
+        let timeLeft = duration - currentTime;
+
+        //calculations
+        let seconds = timeLeft % 60;
+        let minutes = Math.floor(timeLeft / 60) % 60;
+
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+
+        maxTime.innerHTML = minutes + ":" + seconds;
+      },false);
+
+    //even listener for current time
+    audio.addEventListener(
+      "timeupdate",
+      function () {
+        let currentTime = document.getElementById("current-time");
+        let seconds = parseInt(audio.currentTime % 60);
+        let minutes = parseInt((audio.currentTime / 60) % 60);
+
+        if (seconds < 10) {
+          currentTime.innerHTML = minutes + ':0' + seconds;
+        } else {
+          currentTime.innerHTML = minutes + ':' + seconds;
+
+          //movement of progress bar every time there is an update in time
+          const prob = audio.currentTime / audio.duration;
+          progressBar.value = prob * 100;
+        }
+      },false);
+
+    //listen to changes when moving the progress bar
+    progressBar.addEventListener("change", () => {
+      const prob = progressBar.value / 100;
+      audio.currentTime = (audio.duration || 0) * prob;
+    });
+  },
+
+//Play the audio function
+  playSong(ev) {
+    audio.play();
+    APP.showButton('buttonPause');
+  },
+
+  // Pause the audio function
+  pauseSong(ev) {
+    audio.pause();
+    APP.showButton('buttonPlay');
+  },
+
+  // Stop the audio function
+  stopSong(ev) {
+    audio.pause();
+    progressBar.value = 0;
+    audio.currentTime = 0;
+  },
+
+
+  // Replay the audio function 
+  replaySong(ev) {
+    audio.currentTime = 0;
+  },
   //Toggling the pause or play button based on input parameters
   showButton(button) {
-  let showBtn;
+    let showBtn;
     let hideBtn;
 
-    if (button == 'buttonPause') {
+    if (button == "buttonPause") {
       showBtn = "buttonPause";
       hideBtn = "buttonPlay";
     } else {
@@ -164,9 +215,9 @@ const APP = {
     }
 
     // Hide the hideBtn and display the showBtn
-    document.getElementById(hideBtn).style.display = 'none';
-    document.getElementById(showBtn).style.display = '';
-  }
+    document.getElementById(hideBtn).style.display = "none";
+    document.getElementById(showBtn).style.display = "";
+  },
 };
 
 //get the APP.init function to run when the page loads
