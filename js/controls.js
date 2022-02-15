@@ -34,28 +34,26 @@ let BtnPause;
 
 const APP = {
   init: () => {
-    APP.eventListeners();
-    APP.songsSection();
-  },
-
-  /**The Event Listeners */
-  eventListeners() {
     progressBar = document.getElementById("progress-bar");
     audio = document.getElementById("track-player");
     durationTime = document.getElementById("max-time");
     selectedCover = document.getElementById("selected-track-cover");
     selectedTrackName = document.getElementById("selected-track-title");
     selectedTrackArtist = document.getElementById("selected-track-artist");
-    //button elements
     btnPlay = document.getElementById("buttonPlay");
     btnStop = document.getElementById("buttonStop");
     BtnPause = document.getElementById("buttonPause");
+    APP.eventListeners();
+    APP.songsSection();
+  },
 
     /*Event Listeners */
+  eventListeners: () => {
     audio.addEventListener("durationchange", APP.replaySong);
     btnPlay.addEventListener("click", APP.playSong);
     btnStop.addEventListener("click", APP.stopSong);
     BtnPause.addEventListener("click", APP.pauseSong);
+
   },
 
   /*Functions*/
@@ -89,6 +87,7 @@ const APP = {
           if (index !== currentSong) {
             //select and display the new song
             APP.displaySong(index);
+            APP.playSong(index);
           }
           //create a new function when called with a certain 'this' value
           //this == object selected
@@ -195,6 +194,7 @@ const APP = {
   // Stop the audio function
   stopSong(ev) {
     audio.pause();
+    APP.showButton('buttonPlay');
     audio.currentTime = 0;
     progressBar.value = 0;
   
