@@ -3,17 +3,10 @@
 import { SONGS } from "./songs.js";
 
 /**
- *Hybrid 2: Tasks
- * 1. listen for duration change event..
- * 2. Listen for click events to play, pause and stop the first track from the array
- * 3. Display thumbnail image in the player for the song currently playing
- * 4. Display one of the play and pause button..if playing then play button should be hidden.
- * 5. Add a CSS active class to song playing & media player area.
- *
- * Steps:
- * Load the songs from songs.js..complete buttons functionality, display current and total time..
- *
- * stuck on loading the audio..use setTimeout?
+ *Feedback 
+  To do: 
+  have all of the event listeners added within a single function..in eventListeners:()=>{}
+  Avoid event listeners in loops..and too many event listeners 
  */
 
 //set global variables for songs and track details
