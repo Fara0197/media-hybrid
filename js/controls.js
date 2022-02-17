@@ -218,12 +218,31 @@ const APP = {
     audio.currentTime = 0;
   },
 
- //next song
+ //next song function
    nextSong() {
     // Find the next position while accounting for exceeding past the array length
-    currentSong = (currentSong + 1) % SONGS.length
-    APP.displaySong(currentSong)
+    currentSong = (currentSong + 1) % SONGS.length;
+    APP.displaySong(currentSong);
+    APP.playSong(currentSong);
   },
+
+//previous song function..
+  previousSong(){
+    let previousIndex = JSON.parse(JSON.stringify(currentSong)) - 1;
+  
+  },
+
+
+  // Move 10 seconds ahead in current song
+  seekForwardSong() {
+    audio.currentTime += 10;
+  },
+
+  // Move 10 seconds behind in current song
+  seekBackwardSong() {
+    audio.currentTime -= 10;
+  },
+
 
   //Toggling the pause or play button based on input parameters
   showButton(button) {
