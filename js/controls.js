@@ -29,15 +29,13 @@ let btnNext;
 let btnPrevious;
 let btnForward;
 
-
 const APP = {
   init: () => {
-
     APP.eventListeners();
     APP.songsSection();
   },
 
-    /*Event Listeners */
+  /*Event Listeners */
   eventListeners: () => {
     progressBar = document.getElementById("progress-bar");
     audio = document.getElementById("track-player");
@@ -53,10 +51,9 @@ const APP = {
     btnPrevious = document.getElementById("buttonPrevious");
     btnNext = document.getElementById("buttonNext");
 
-
     audio.addEventListener("durationchange", APP.replaySong);
-    audio.addEventListener('timeupdate', APP.trackMax);
-    audio.addEventListener('timeupdate', APP.trackCurrent);
+    audio.addEventListener("timeupdate", APP.trackMax);
+    audio.addEventListener("timeupdate", APP.trackCurrent);
     btnPlay.addEventListener("click", APP.playSong);
     btnStop.addEventListener("click", APP.stopSong);
     BtnPause.addEventListener("click", APP.pauseSong);
@@ -66,7 +63,6 @@ const APP = {
     btnForward.addEventListener("click", APP.seekForwardSong);
   },
 
- 
   /*Functions*/
   //load the playlist on screen: initializing the songs list and the selected the song
   songsSection() {
@@ -142,7 +138,6 @@ const APP = {
 
   //the max and current time for the track duration
   trackDuration() {
-
     //event listener for max duration
     audio.addEventListener(
       "timeupdate",
@@ -160,7 +155,9 @@ const APP = {
         minutes = minutes < 10 ? "0" + minutes : minutes;
 
         maxTime.innerHTML = minutes + ":" + seconds;
-      },false);
+      },
+      false
+    );
 
     //even listener for current time
     audio.addEventListener(
@@ -171,15 +168,17 @@ const APP = {
         let minutes = parseInt((audio.currentTime / 60) % 60);
 
         if (seconds < 10) {
-          currentTime.innerHTML = minutes + ':0' + seconds;
+          currentTime.innerHTML = minutes + ":0" + seconds;
         } else {
-          currentTime.innerHTML = minutes + ':' + seconds;
+          currentTime.innerHTML = minutes + ":" + seconds;
 
           //movement of progress bar every time there is an update in time
           const prob = audio.currentTime / audio.duration;
           progressBar.value = prob * 100;
         }
-      },false);
+      },
+      false
+    );
 
     //listen to changes when moving the progress bar
     progressBar.addEventListener("change", () => {
@@ -188,50 +187,49 @@ const APP = {
     });
   },
 
-//Play the audio function
+  //Play the audio function
   playSong(ev) {
     audio.play();
-    APP.showButton('buttonPause');
-
+    APP.showButton("buttonPause");
   },
 
   // Pause the audio function
   pauseSong(ev) {
     audio.pause();
-    APP.showButton('buttonPlay');
-
-
+    APP.showButton("buttonPlay");
   },
 
   // Stop the audio function
   stopSong(ev) {
     audio.pause();
-    APP.showButton('buttonPlay');
+    APP.showButton("buttonPlay");
     audio.currentTime = 0;
     progressBar.value = 0;
-  
   },
 
-
-  // Replay the audio function 
+  // Replay the audio function
   replaySong(ev) {
     audio.currentTime = 0;
   },
 
- //next song function
-   nextSong() {
+  //next song function
+  nextSong() {
     // Find the next position while accounting for exceeding past the array length
     currentSong = (currentSong + 1) % SONGS.length;
     APP.displaySong(currentSong);
     APP.playSong(currentSong);
   },
 
-//previous song function..
-  previousSong(){
+  //previous song function..
+  previousSong() {
     let previousIndex = JSON.parse(JSON.stringify(currentSong)) - 1;
-  
+    currentSong =
+      previousIndex < 0
+        ? (previousIndex + SONGS.length) % SONGS.length
+        : previousIndex % SONGS.length;
+    APP.displaySong(currentSong);
+    APP.playSong(currentSong);
   },
-
 
   // Move 10 seconds ahead in current song
   seekForwardSong() {
@@ -242,7 +240,6 @@ const APP = {
   seekBackwardSong() {
     audio.currentTime -= 10;
   },
-
 
   //Toggling the pause or play button based on input parameters
   showButton(button) {
@@ -260,11 +257,7 @@ const APP = {
     // Hide the hideBtn and display the showBtn
     document.getElementById(hideBtn).style.display = "none";
     document.getElementById(showBtn).style.display = "";
-
-    
   },
-
-  
 };
 
 //get the APP.init function to run when the page loads
