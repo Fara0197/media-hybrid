@@ -24,9 +24,21 @@ let btnPlay;
 let btnStop;
 let durationTime;
 let BtnPause;
+let btnReplay;
+let btnNext;
+let btnPrevious;
+let btnForward;
+
 
 const APP = {
   init: () => {
+
+    APP.eventListeners();
+    APP.songsSection();
+  },
+
+    /*Event Listeners */
+  eventListeners: () => {
     progressBar = document.getElementById("progress-bar");
     audio = document.getElementById("track-player");
     durationTime = document.getElementById("max-time");
@@ -36,21 +48,25 @@ const APP = {
     btnPlay = document.getElementById("buttonPlay");
     btnStop = document.getElementById("buttonStop");
     BtnPause = document.getElementById("buttonPause");
-    APP.eventListeners();
-    APP.songsSection();
-  },
+    btnForward = document.getElementById("buttonForward");
+    btnReplay = document.getElementById("buttonReplay");
+    btnPrevious = document.getElementById("buttonPrevious");
+    btnNext = document.getElementById("buttonNext");
 
-    /*Event Listeners */
-  eventListeners: () => {
+
     audio.addEventListener("durationchange", APP.replaySong);
     audio.addEventListener('timeupdate', APP.trackMax);
     audio.addEventListener('timeupdate', APP.trackCurrent);
     btnPlay.addEventListener("click", APP.playSong);
     btnStop.addEventListener("click", APP.stopSong);
     BtnPause.addEventListener("click", APP.pauseSong);
-
+    btnNext.addEventListener("click", APP.nextSong);
+    btnPrevious.addEventListener("click", APP.previousSong);
+    btnReplay.addEventListener("click", APP.seekBackwardSong);
+    btnForward.addEventListener("click", APP.seekForwardSong);
   },
 
+ 
   /*Functions*/
   //load the playlist on screen: initializing the songs list and the selected the song
   songsSection() {
@@ -201,6 +217,14 @@ const APP = {
   replaySong(ev) {
     audio.currentTime = 0;
   },
+
+ //next song
+   nextSong() {
+    // Find the next position while accounting for exceeding past the array length
+    currentSong = (currentSong + 1) % SONGS.length
+    APP.displaySong(currentSong)
+  },
+
   //Toggling the pause or play button based on input parameters
   showButton(button) {
     let showBtn;
