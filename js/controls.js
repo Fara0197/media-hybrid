@@ -50,6 +50,8 @@ const APP = {
     /*Event Listeners */
   eventListeners: () => {
     audio.addEventListener("durationchange", APP.replaySong);
+    audio.addEventListener('timeupdate', APP.trackMax);
+    audio.addEventListener('timeupdate', APP.trackCurrent);
     btnPlay.addEventListener("click", APP.playSong);
     btnStop.addEventListener("click", APP.stopSong);
     BtnPause.addEventListener("click", APP.pauseSong);
@@ -131,6 +133,7 @@ const APP = {
 
   //the max and current time for the track duration
   trackDuration() {
+
     //event listener for max duration
     audio.addEventListener(
       "timeupdate",
