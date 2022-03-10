@@ -5,8 +5,9 @@ import { SONGS } from "./songs.js";
 /**
  *Feedback 
   To do: 
-  have all of the event listeners added within a single function..in eventListeners:()=>{}
-  Avoid event listeners in loops..and too many event listeners 
+ organize code 
+ fix: 
+ when song finishes..play next song automatically ..ended add event listener? 
  */
 
 //set global variables for songs and track details
@@ -82,7 +83,7 @@ const APP = {
       songItems.id = "song-items";
       songTitle.id = "track-name";
       songArtist.id = "artist-name";
-      imageCover.id = "track-name"
+      imageCover.id = "track-name";
 
       songTitle.innerHTML = song.title;
       songArtist.innerHTML = song.artist;
@@ -118,10 +119,7 @@ const APP = {
     APP.trackDuration();
     APP.displaySong(0);
 
-
-  audio.addEventListener('ended', function(){
-  
-  })
+    audio.addEventListener("ended", function () {});
   },
 
   //Displaying the selected song details
@@ -197,14 +195,11 @@ const APP = {
     });
   },
 
-
   //Play the audio function
   playSong(ev) {
     audio.play();
     APP.showButton("buttonPause");
   },
-
-
 
   // Pause the audio function
   pauseSong(ev) {
@@ -247,7 +242,6 @@ const APP = {
   // Move 10 seconds ahead in current song
   seekForwardSong() {
     audio.currentTime += 10;
-
   },
 
   // Move 10 seconds behind in current song

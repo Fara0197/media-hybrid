@@ -10,7 +10,6 @@ body {
   font-weight: 400;
   line-height: 1.75;
   color: #000000;
-
 }
 
 p {
@@ -131,7 +130,6 @@ button {
   display: flex;
   flex-direction: column;
   padding: 1rem 0.4rem 1rem;
-  
 }
 #selected-track-cover {
   width: 300px;
@@ -172,7 +170,7 @@ button {
   display: block;
 }
 
-#selected-track-cover{
+#selected-track-cover {
   animation: pulse 3s infinite;
 }
 
