@@ -8,30 +8,32 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <title>MP3 player</title>
   </head>
 
   <body>
     <header class="mastHeader">
-      <h1>nasra playlist</h1>
+      <h1>music playlist</h1>
     </header>
 
     <div class="media-containers">
-      <section id="player-section">
+      <section id="player" class="is-playing">
         <div id="visual">
-          <h2>Piano</h2>
-          <img src="./media/sampha.jpeg" alt="track name" />
-          <div id="audio-animation">
-            <time>0:00</time>
-            <progress value="0" max="100"></progress>
-            <time>0:00</time>
-            <audio id="track-player" src="./media"></audio>
+          <h3 id="selected-track-artist"></h3>
+          <h2 id="selected-track-title"></h2>
+          <img id="selected-track-cover" alt="track-image">
+          <audio preload="metadata" id="track-player"></audio>
+          <div id="track-duration">
+            <time id="current-time">0:00</time>
+            <input type="range" class="progress-bar slider-progress"name="progress-bar" id="progress-bar" value="0"
+            />
+            <time id="max-time">0:00</time>
           </div>
         </div>
+        
         <div id="controls">
           <!-- all the buttons go here -->
-
           <button id="buttonPrevious" class="buttons">
             <span class="material-icons">skip_previous</span>
           </button>
@@ -58,37 +60,9 @@
 
       <section id="playlist-section">
         <div id="playlist-items">
-          <div id="song-1">
-            <img src="./media/kevingarrett.jpeg" alt="kevin-playlist" />
-            <h2 class="artist-name">Kevin Garrett</h2>
-            <h3 class="track-name">Refuse</h3>
-          </div>
-
-          <div id="song-2">
-            <img src="./media/snohaalegra.jpeg" alt="snoh-playlist" />
-            <h2 class="artist-name">Snoh Aalegra</h2>
-            <h3 class="track-name">Indecisive</h3>
-          </div>
-
-          <div id="song-3">
-            <img src="./media/mahalia.jpeg" alt="mahalia-playlist" />
-            <h2 class="artist-name">Mahalia</h2>
-            <h3 class="track-name">Pretty</h3>
-          </div>
-
-          <div id="song-4">
-            <img src="./media/sampha.jpeg" alt="sampha-playlist" />
-            <h2 class="artist-name">Sampha</h2>
-            <h3 class="track-name">Piano</h3>
-          </div>
-
-          <div id="song-5">
-            <img src="./media/samkim.jpeg" alt="samkim-playlist" />
-            <h2 class="artist-name">Sam Kim</h2>
-            <h3 class="track-name">Seattle</h3>
-          </div>
         </div>
       </section>
-    </div>
+      <script type="module" src="./js/controls.js" defer></script>
   </body>
+
 </html>
