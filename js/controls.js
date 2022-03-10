@@ -82,6 +82,7 @@ const APP = {
       songItems.id = "song-items";
       songTitle.id = "track-name";
       songArtist.id = "artist-name";
+      imageCover.id = "track-name"
 
       songTitle.innerHTML = song.title;
       songArtist.innerHTML = song.artist;

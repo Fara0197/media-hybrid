@@ -72,7 +72,6 @@ input[type="range"]::-webkit-slider-runnable-track {
   cursor: pointer;
   background-color: rgba(223, 202, 175, 0.475);
   border-radius: 30px;
-  
 }
 input[type="range"]::-webkit-slider-thumb {
   height: 0.9rem;
@@ -115,8 +114,6 @@ button {
 
 #track-duration {
   padding: 0.4rem 0.3rem 0.4rem;
-
-  
 }
 #visual {
   padding: 0.4rem;
@@ -144,7 +141,6 @@ button {
   object-fit: cover;
   align-self: flex-start;
   padding: 0.2rem 0.4rem 0.2rem;
-  
 }
 /*active on artist name*/
 
@@ -170,7 +166,7 @@ button {
 }
 
 #song-items:hover {
-  border: 2px solid rgba(160, 125, 79, 0.925);
+  /* border: 2px solid rgba(160, 125, 79, 0.925); */
   background-color: rgba(230, 224, 216, 0.366);
   cursor: pointer;
 }
@@ -180,10 +176,10 @@ button {
   background-color: rgba(193, 173, 148, 0.277);
   animation: pulse 3s infinite;
 }
-#buttonPause{
+#buttonPause {
   animation: pulse 3s infinite;
   color: rgb(213, 206, 196);
-  text-shadow:  0 0 1px rgb(147, 97, 28);
+  text-shadow: 0 0 1px rgb(147, 97, 28);
 }
 
 @keyframes pulse {
@@ -191,10 +187,10 @@ button {
     -webkit-box-shadow: 0 0 0 0 rgba(138, 99, 47, 0.925);
   }
   70% {
-      -webkit-box-shadow: 0 0 0 5px rgba(255,0,0, 0);
+    -webkit-box-shadow: 0 0 0 5px rgba(255, 0, 0, 0);
   }
   100% {
-      -webkit-box-shadow: 0 0 0 0 rgba(255,0,0, 0);
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
   }
 }
 
