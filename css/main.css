@@ -10,6 +10,7 @@ body {
   font-weight: 400;
   line-height: 1.75;
   color: #000000;
+
 }
 
 p {
@@ -129,6 +130,7 @@ button {
   display: flex;
   flex-direction: column;
   padding: 1rem 0.4rem 1rem;
+  
 }
 #selected-track-cover {
   width: 300px;
@@ -148,6 +150,8 @@ button {
   padding: 1.4rem;
   flex: 1 1 0;
   background-color: rgba(99, 58, 9, 0.277);
+  border: 1px solid rgba(160, 125, 79, 0.242);
+  border-radius: 2rem;
 }
 
 #playlist-section {
@@ -155,6 +159,8 @@ button {
   flex: 1 1 0;
   background-color: rgba(213, 203, 189, 0.366);
   justify-content: center;
+  border: 1px solid rgba(160, 125, 79, 0.242);
+  border-radius: 2rem;
 }
 
 .hide {
@@ -175,6 +181,7 @@ button {
   color: rgba(138, 99, 47, 0.925);
   background-color: rgba(193, 173, 148, 0.277);
   animation: pulse 3s infinite;
+  border-radius: 2rem;
 }
 #buttonPause {
   animation: pulse 3s infinite;

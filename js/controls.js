@@ -98,7 +98,7 @@ const APP = {
             console.log(index, currentSong);
             //select and display the new song
             APP.displaySong(index);
-            APP.playSong(index);
+            APP.playSong(currentSong);
           }
           //create a new function when called with a certain 'this' value
           //this == object selected
@@ -238,6 +238,7 @@ const APP = {
   // Move 10 seconds ahead in current song
   seekForwardSong() {
     audio.currentTime += 10;
+    APP.playSong();
   },
 
   // Move 10 seconds behind in current song
