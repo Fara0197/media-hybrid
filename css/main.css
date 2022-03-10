@@ -78,7 +78,8 @@ input[type="range"]::-webkit-slider-thumb {
   height: 0.9rem;
   width: 0.8rem;
   border-radius: 7px;
-  background: rgba(62, 37, 6, 0.996);
+  background: rgba(87, 56, 18, 0.639);
+  border: 1px solid rgba(82, 49, 6, 0.064);
   cursor: pointer;
   -webkit-appearance: none;
 }
@@ -169,6 +170,10 @@ button {
 
 .show {
   display: block;
+}
+
+#selected-track-cover{
+  animation: pulse 3s infinite;
 }
 
 #song-items:hover {

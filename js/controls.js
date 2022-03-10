@@ -100,6 +100,7 @@ const APP = {
             APP.displaySong(index);
             APP.playSong(currentSong);
           }
+
           //create a new function when called with a certain 'this' value
           //this == object selected
         }.bind(this)
@@ -116,6 +117,11 @@ const APP = {
     //new function for duration
     APP.trackDuration();
     APP.displaySong(0);
+
+
+  audio.addEventListener('ended', function(){
+  
+  })
   },
 
   //Displaying the selected song details
@@ -191,11 +197,14 @@ const APP = {
     });
   },
 
+
   //Play the audio function
   playSong(ev) {
     audio.play();
     APP.showButton("buttonPause");
   },
+
+
 
   // Pause the audio function
   pauseSong(ev) {
@@ -238,7 +247,7 @@ const APP = {
   // Move 10 seconds ahead in current song
   seekForwardSong() {
     audio.currentTime += 10;
-    APP.playSong();
+
   },
 
   // Move 10 seconds behind in current song
