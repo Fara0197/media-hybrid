@@ -183,7 +183,7 @@ button {
 #buttonPause{
   animation: pulse 3s infinite;
   color: rgb(213, 206, 196);
-  text-shadow:  0 0 5px rgb(147, 97, 28);
+  text-shadow:  0 0 1px rgb(147, 97, 28);
 }
 
 @keyframes pulse {
@@ -191,7 +191,7 @@ button {
     -webkit-box-shadow: 0 0 0 0 rgba(138, 99, 47, 0.925);
   }
   70% {
-      -webkit-box-shadow: 0 0 0 10px rgba(255,0,0, 0);
+      -webkit-box-shadow: 0 0 0 5px rgba(255,0,0, 0);
   }
   100% {
       -webkit-box-shadow: 0 0 0 0 rgba(255,0,0, 0);

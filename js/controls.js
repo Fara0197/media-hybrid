@@ -90,8 +90,11 @@ const APP = {
       songItems.addEventListener(
         "click",
         function () {
+          console.log(index, currentSong);
           //if clicked, ignore if the selected song is already playing
-          if (index !== currentSong) {
+          //or statement within the if statement
+          if (index !== currentSong || index == currentSong) {
+            console.log(index, currentSong);
             //select and display the new song
             APP.displaySong(index);
             APP.playSong(index);
