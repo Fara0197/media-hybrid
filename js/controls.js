@@ -6,7 +6,7 @@ import { SONGS } from "./songs.js";
  *Feedback 
   To do: 
  organize code 
- fix: 
+ To fix: 
  when song finishes..play next song automatically ..ended add event listener? 
  */
 
