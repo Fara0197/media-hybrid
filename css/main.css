@@ -182,7 +182,7 @@ padding: 00.5rem;
 }
 
 #song-items.active {
-  color: rgba(138, 99, 47, 0.925);
+  color: rgba(145, 106, 56, 0.925);
   background-color: rgba(193, 173, 148, 0.277);
   animation: pulse 3s infinite;
   border-radius: 5px;
