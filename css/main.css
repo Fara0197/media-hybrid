@@ -38,6 +38,8 @@ h2 {
   font-size: 1.7rem;
   padding: 0;
   margin: 0;
+
+
 }
 
 h3 {
@@ -121,6 +123,20 @@ h2:active {
   padding-top: 0;
 }
 
+
+@media only screen and (min-width: 48em) {
+  #song-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem 1rem 1rem;
+  }
+
+  #song-items img {
+    width: 450px;
+    height: 300px;
+  }
+
 #song-1,
 #song-2,
 #song-3,
@@ -128,6 +144,7 @@ h2:active {
 #song-5 {
   padding: 1.2rem;
   width: 100%;
+
 }
 
 @media only screen and (min-width: 60em) {
@@ -139,3 +156,5 @@ h2:active {
     padding-top: 10rem;
   }
 }
+
+  
