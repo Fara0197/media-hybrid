@@ -29,9 +29,11 @@ h1 {
 }
 
 h2 {
-  font-size: 1.3rem;
-  padding: 0;
+  font-size: 1.5em;
   margin: 0;
+  padding: 0;
+
+
 }
 
 h3 {
@@ -211,9 +213,10 @@ button {
     align-items: flex-start;
     padding: 1rem 1rem 1rem;
   }
+
   #song-items img {
-    width: 350px;
-    height: 200px;
+    width: 450px;
+    height: 300px;
   }
 }
 
