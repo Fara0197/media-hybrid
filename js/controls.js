@@ -91,7 +91,7 @@ const APP = {
         "click",
         function () {
           //if clicked, ignore if the selected song is already playing
-          if (index !== currentSong) {
+          if (index !== currentSong || index == currentSong ) {
             //select and display the new song
             APP.displaySong(index);
             APP.playSong(index);
