@@ -28,6 +28,8 @@ let btnReplay;
 let btnNext;
 let btnPrevious;
 let btnForward;
+let buttonMute; 
+let buttonOn;
 
 const APP = {
   init: () => {
@@ -50,6 +52,8 @@ const APP = {
     btnReplay = document.getElementById("buttonReplay");
     btnPrevious = document.getElementById("buttonPrevious");
     btnNext = document.getElementById("buttonNext");
+    buttonMute = document.getElementById("buttonMute");
+    buttonOn = document.getElementById("buttonOn");
 
     audio.addEventListener("durationchange", APP.replaySong);
     audio.addEventListener("timeupdate", APP.trackMax);
@@ -61,6 +65,8 @@ const APP = {
     btnPrevious.addEventListener("click", APP.previousSong);
     btnReplay.addEventListener("click", APP.seekBackwardSong);
     btnForward.addEventListener("click", APP.seekForwardSong);
+    buttonMute.addEventListener("click", APP.muteSong);
+    buttonOn.addEventListener("click", APP.unMute);
   },
 
   /*Functions*/
@@ -241,7 +247,25 @@ const APP = {
     audio.currentTime -= 10;
   },
 
-  //Toggling the pause or play button based on input parameters
+muteSong(){
+//console.log("test-mute");
+audio.muted = true;
+},
+unMute(){
+  audio.muted = false;
+},
+
+
+
+
+
+
+
+
+
+
+
+//Toggling the pause or play button based on input parameters
   showButton(button) {
     let showBtn;
     let hideBtn;
