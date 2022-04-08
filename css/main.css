@@ -112,6 +112,12 @@ button {
   padding: 1rem 2rem 1rem;
   text-align: center;
 }
+#controls{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+display: inline-block;
+}
 
 #track-duration {
   padding: 0.4rem 0.3rem 0.4rem;
@@ -147,6 +153,12 @@ button {
   border-radius: 10px;
   
 }
+
+
+#song-items h2{
+
+font-size: 1.5rem;
+}
 /*active on artist name*/
 
 #player {
@@ -172,10 +184,14 @@ button {
   display: block;
 }
 
-#song-items:hover {
-  border: 5px solid rgba(160, 125, 79, 0.925);
-  background-color: rgba(230, 224, 216, 0.366);
+#song-items{
+  border-bottom: 1px solid rgba(160, 125, 79, 0.153);
+  border-radius: 2px;
+
   cursor: pointer;
+}
+#song-items:hover{
+  background-color: rgba(230, 224, 216, 0.366);
 }
 
 #song-items.active {
@@ -192,12 +208,26 @@ button {
 }
 #icon-song{
 height: 5rem;  
+width: 5rem;  
+border:1px solid rgba(63, 43, 12, 0.575);
+margin:auto;
+border-radius:60%; 
 }
-#Layer_1{background-color: red;
+.st0{
+fill: none;
+animation: pulse 3s infinite;
+}
+#audio-lines{
+fill:rgba(63, 43, 12, 0.575);
 }
 
+
+
 #selected-track-cover{
+  margin-top: 1rem;
+  padding: 2rem 1rem;
   border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(101, 63, 10, 0.575), 0 6px 20px 0 rgba(255,0,0, 0);
 }
 
 
@@ -206,7 +236,7 @@ height: 5rem;
     -webkit-box-shadow: 0 0 0 0 rgba(138, 99, 47, 0.925);
   }
   70% {
-      -webkit-box-shadow: 0 0 0 5px rgba(255,0,0, 0);
+      -webkit-box-shadow: 0 0 0 2px rgba(255,0,0, 0);
   }
   100% {
       -webkit-box-shadow: 0 0 0 0 rgba(255,0,0, 0);
@@ -220,6 +250,7 @@ height: 5rem;
     align-items: flex-start;
     padding: 1rem 1rem 1rem;
   }
+
   #song-items img {
     width: 350px;
     height: 200px;

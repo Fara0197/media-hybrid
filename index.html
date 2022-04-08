@@ -14,15 +14,22 @@
 
   <body>
     <header class="mastHeader">
-      <h1>my playlist</h1>
+      <h1> music playlist</h1>
     </header>
 
+ 
     <div class="media-containers">
       <section id="player" class="is-playing">
         <div id="visual">
           <h3 id="selected-track-artist"></h3>
           <h2 id="selected-track-title"></h2>
-            <img src="./images/headphones.svg" id="icon-song">
+          <div id="icon-song">   <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+     
+         <path class="st0" d="M0,0h24v24H0V0z"/>
+         <path id="audio-lines" d="M7,18h2V6H7V18z M11,22h2V2h-2V22z M3,14h2v-4H3V14z M15,18h2V6h-2V18z M19,10v4h2v-4H19z"/>
+         </svg></div>
+           
           <img id="selected-track-cover" alt="track-image">
           <audio preload="metadata" id="track-player"></audio>
           <div id="track-duration">
@@ -58,6 +65,13 @@
             <span class="material-icons">skip_next</span>
           </button>
         </div>
+
+        <button id="buttonMute" class ="buttons">
+          <span class="material-icons">
+            volume_off
+            </span>
+            
+        </button>
       </section>
 
       <section id="playlist-section">
