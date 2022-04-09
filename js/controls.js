@@ -197,6 +197,11 @@ const APP = {
   playSong(ev) {
     audio.play();
     APP.showButton("buttonPause");
+    if (audio.paused) {
+      audio.play();
+      key.style.boxShadow = "inset 3px 3px 5px rgba(0,0,0,.5)";
+      key.style.textShadow = "3px 3px 5px rgba(0,0,0,.5)";
+  }
   },
 
   // Pause the audio function
@@ -250,17 +255,12 @@ const APP = {
 muteSong(){
 //console.log("test-mute");
 audio.muted = true;
+
 },
 unMute(){
   audio.muted = false;
+
 },
-
-
-
-
-
-
-
 
 
 
