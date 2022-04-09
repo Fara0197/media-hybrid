@@ -217,7 +217,7 @@ const APP = {
     APP.showButton("buttonPlay");
     audio.currentTime = 0;
     progressBar.value = 0;
-    document.querySelector("#icon-song").style.animationPlayState = 'paused';
+    document.querySelector("#icon-song").style.animationPlayState = 'initial';
   },
 
   // Replay the audio function
