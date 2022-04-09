@@ -30,6 +30,7 @@ let btnPrevious;
 let btnForward;
 let buttonMute; 
 let buttonOn;
+let element; 
 
 const APP = {
   init: () => {
@@ -54,6 +55,7 @@ const APP = {
     btnNext = document.getElementById("buttonNext");
     buttonMute = document.getElementById("buttonMute");
     buttonOn = document.getElementById("buttonOn");
+    element = document.getElementById("icon-song");
 
     audio.addEventListener("durationchange", APP.replaySong);
     audio.addEventListener("timeupdate", APP.trackMax);
@@ -67,6 +69,7 @@ const APP = {
     btnForward.addEventListener("click", APP.seekForwardSong);
     buttonMute.addEventListener("click", APP.muteSong);
     buttonOn.addEventListener("click", APP.unMute);
+  
   },
 
   /*Functions*/
@@ -197,17 +200,15 @@ const APP = {
   playSong(ev) {
     audio.play();
     APP.showButton("buttonPause");
-    if (audio.paused) {
-      audio.play();
-      key.style.boxShadow = "inset 3px 3px 5px rgba(0,0,0,.5)";
-      key.style.textShadow = "3px 3px 5px rgba(0,0,0,.5)";
-  }
+    document.querySelector("#icon-song").style.animationPlayState = 'running';
   },
 
   // Pause the audio function
   pauseSong(ev) {
     audio.pause();
     APP.showButton("buttonPlay");
+    console.log('paused song');
+    document.querySelector("#icon-song").style.animationPlayState = 'paused';
   },
 
   // Stop the audio function
@@ -216,6 +217,7 @@ const APP = {
     APP.showButton("buttonPlay");
     audio.currentTime = 0;
     progressBar.value = 0;
+    document.querySelector("#icon-song").style.animationPlayState = 'paused';
   },
 
   // Replay the audio function
@@ -274,7 +276,7 @@ unMute(){
       showBtn = "buttonPause";
       hideBtn = "buttonPlay";
     } else {
-      showBtn = "buttonPlay";
+      showBtn = "buttonPlay" ;
       hideBtn = "buttonPause";
     }
 
@@ -282,6 +284,8 @@ unMute(){
     document.getElementById(hideBtn).style.display = "none";
     document.getElementById(showBtn).style.display = "";
   },
+
+  
 };
 
 //get the APP.init function to run when the page loads
