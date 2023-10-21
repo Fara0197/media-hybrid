@@ -26,7 +26,7 @@ h5 {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 0.99rem;
 }
 
 h2 {
@@ -73,7 +73,6 @@ input[type="range"]::-webkit-slider-runnable-track {
   cursor: pointer;
   background-color: rgba(223, 202, 175, 0.475);
   border-radius: 30px;
-  
 }
 input[type="range"]::-webkit-slider-thumb {
   height: 0.9rem;
@@ -113,17 +112,15 @@ button {
   padding: 1rem 2rem 1rem;
   text-align: center;
 }
-#controls{
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-display: inline-block;
+#controls {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: inline-block;
 }
 
 #track-duration {
   padding: 0.4rem 0.3rem 0.4rem;
-
-  
 }
 #visual {
   padding: 0.4rem;
@@ -152,13 +149,13 @@ display: inline-block;
   align-self: flex-start;
   padding: 0.2rem 0.4rem 0.2rem;
   border-radius: 10px;
-  
 }
 
-
-#song-items h2{
-display: block;
-font-size: 1.3rem;
+#song-items h2 {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3rem;
 }
 /*active on artist name*/
 
@@ -185,14 +182,13 @@ font-size: 1.3rem;
   display: block;
 }
 
-#song-items{
-  
+#song-items {
   border-bottom: 1px solid rgba(160, 125, 79, 0.153);
   border-radius: 2px;
 
   cursor: pointer;
 }
-#song-items:hover{
+#song-items:hover {
   background-color: rgba(230, 224, 216, 0.366);
 }
 
@@ -202,67 +198,84 @@ font-size: 1.3rem;
   border-radius: 8px;
   animation: pulse 3s infinite;
 }
-#buttonPause{
+#buttonPause {
   animation: pulse 3s infinite;
   color: rgb(213, 206, 196);
-  text-shadow:  0 0 5px rgb(147, 97, 28);
+  text-shadow: 0 0 5px rgb(147, 97, 28);
 }
 .paused {
   animation-play-state: paused;
 }
-#icon-song{
-  height: 5rem;  
-  width: 5rem;  
-  margin:auto;
-  border-radius:50%; 
+#icon-song {
+  height: 3rem;
+  width: 3rem;
+  margin: auto;
+  border-radius: 50%;
   box-shadow: 0 0 4px rgba(176, 134, 75, 0.55);
   animation: alternate 2s infinite breathe ease-in-out;
-  }
-
-  
-#buttonMute:active{
-color: wheat;
-}
-.st0{
-fill: none;
-
-
-}
-#audio-lines{
-fill:rgba(148, 91, 4, 0.575);
 }
 
+#buttonMute:active {
+  color: wheat;
+}
+.st0 {
+  fill: none;
+}
+#audio-lines {
+  fill: rgba(148, 91, 4, 0.575);
+}
 
-#selected-track-cover{
+#selected-track-cover {
   margin-top: 1rem;
   padding: 2rem 1rem;
   border-radius: 12px;
-  box-shadow: 0 4px 8px 0 rgba(123, 92, 48, 0.575), 0 6px 20px 0 rgba(255,0,0, 0);
-  animation:glide 2s ease-in-out alternate infinite;
+  box-shadow: 0 4px 8px 0 rgba(123, 92, 48, 0.575),
+    0 6px 20px 0 rgba(255, 0, 0, 0);
+  animation: glide 2s ease-in-out alternate infinite;
 }
 @keyframes pulse {
   0% {
     -webkit-box-shadow: 0 0 0 0 rgba(138, 99, 47, 0.925);
   }
   70% {
-      -webkit-box-shadow: 0 0 0 2px rgba(255,0,0, 0);
+    -webkit-box-shadow: 0 0 0 2px rgba(255, 0, 0, 0);
   }
   100% {
-      -webkit-box-shadow: 0 0 0 0 rgba(255,0,0, 0);
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
   }
 }
 
-
 @keyframes breathe {
   0% {
-    box-shadow: 0 0  5px rgba(109, 67, 8, 0.365), 0  0 13px       rgba(143, 87, 8, 0.947), 0 0  14px rgba(184, 172, 156, 0.575), 0 0  16px rgba(35, 135, 112, 0.3), 0 0  6px rgba(4, 52, 33, 0.187);
-   }
+    box-shadow: 0 0 5px rgba(109, 67, 8, 0.365),
+      0 0 13px rgba(143, 87, 8, 0.947), 0 0 14px rgba(184, 172, 156, 0.575),
+      0 0 16px rgba(35, 135, 112, 0.3), 0 0 6px rgba(4, 52, 33, 0.187);
   }
+}
 
 @media only screen and (min-width: 48em) {
+  .media-containers {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #playlist-section {
+    flex: 2; /* Set "playlist-section" to take up 40% (2/5) */
+    padding: 1rem;
+    background-color: rgba(213, 203, 189, 0.276);
+    justify-content: center;
+    border-radius: 30px;
+  }
+
+  #player {
+    flex: 3; /* Set "player" to take up the rest (3/5) */
+    padding: 1.4rem;
+    background-color: rgba(99, 58, 9, 0.277);
+    border-radius: 30px;
+  }
   #song-items {
     display: flex;
-    flex-direction:row-reverse;
+    flex-direction: row-reverse;
     align-items: center; /* Align it */
     justify-content: space-between;
     padding: 1rem 1rem 1rem;
@@ -275,20 +288,29 @@ fill:rgba(148, 91, 4, 0.575);
 }
 
 @media only screen and (min-width: 60em) {
+  /* Your existing styles for larger screens */
   .media-containers {
     display: flex;
     flex-direction: row;
   }
+
   #visual {
     padding-top: 2rem;
   }
+
   #song-items img {
     width: 150px;
     height: 100px;
   }
 }
-
-
-
-
-
+#titles-playing {
+  display: block;
+}
+#selected-track-artist {
+  padding: 0.3rem;
+  font-size: 1rem;
+}
+#selected-track-title {
+  color: #69390fb6;
+  font-size: 1.5rem;
+}
