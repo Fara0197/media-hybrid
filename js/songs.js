@@ -29,7 +29,7 @@ const SONGS = [
   
     {
       artist: "Snoh Aalegra",
-      title: "Undecisive",
+      title: "Tangerine Dream",
       src: "media/snohaalegra.mp3",
       thumbnail: "media/snohaalegra.jpeg",
     },

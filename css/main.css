@@ -10,6 +10,7 @@ body {
   font-weight: 400;
   line-height: 1.75;
   color: #000000;
+  background-color: rgba(246, 240, 232, 0.562);
 }
 
 p {
@@ -156,8 +157,8 @@ display: inline-block;
 
 
 #song-items h2{
-
-font-size: 1.5rem;
+display: block;
+font-size: 1.3rem;
 }
 /*active on artist name*/
 
@@ -185,6 +186,7 @@ font-size: 1.5rem;
 }
 
 #song-items{
+  
   border-bottom: 1px solid rgba(160, 125, 79, 0.153);
   border-radius: 2px;
 
@@ -260,8 +262,9 @@ fill:rgba(148, 91, 4, 0.575);
 @media only screen and (min-width: 48em) {
   #song-items {
     display: flex;
+    flex-direction:row-reverse;
+    align-items: center; /* Align it */
     justify-content: space-between;
-    align-items: flex-start;
     padding: 1rem 1rem 1rem;
   }
 
